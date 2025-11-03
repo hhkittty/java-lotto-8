@@ -1,5 +1,6 @@
-package lotto;
+package lotto.model.service;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class FixedNumberGenerator implements NumberGenerator {
