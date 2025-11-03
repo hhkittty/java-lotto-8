@@ -1,6 +1,12 @@
-package lotto;
+package lotto.controller;
 
 import java.util.List;
+import lotto.model.domain.WinningNumbers;
+import lotto.model.service.RankCalculator;
+import lotto.view.InputView;
+import lotto.model.service.LottoResult;
+import lotto.model.service.MakeLotto;
+import lotto.view.OutputView;
 
 public class LottoController {
     private final InputView input;
@@ -22,11 +28,13 @@ public class LottoController {
 
         List<Integer> inputLottoNumbers = input.inputLottoNumbers();
         int bonus = input.inputBonusNumber(inputLottoNumbers);
+        WinningNumbers winning = new WinningNumbers(inputLottoNumbers, bonus);
 
-        LottoResult result = new LottoResult(inputLottoNumbers, bonus, lottos, inputPrice);
-        List<Integer> calculateRank = result.calculateRank();
-        int totalPrice = result.totalPrice(calculateRank);
-        double pnl = result.pnl(totalPrice);
+        RankCalculator rankcalculator= new RankCalculator();
+        LottoResult result=new LottoResult(rankcalculator);
+        List<Integer> calculateRank = result.calculateRank(winning,lottos);
+        int totalPrice = result.totalPrize(calculateRank);
+        double pnl = result.pnl(totalPrice,inputPrice);
 
         output.printResult(calculateRank);
         output.printPnl(pnl);
