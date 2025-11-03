@@ -1,5 +1,6 @@
 package lotto.model.service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -13,6 +14,9 @@ public class FixedNumberGenerator implements NumberGenerator {
 
     @Override
     public List<Integer> generate() {
-        return fixedNumbers.get(index++);
+        List<Integer> unsortedLotto = fixedNumbers.get(index++);
+        List<Integer> sortedLotto = new ArrayList<>(unsortedLotto);
+        sortedLotto.sort(Comparator.naturalOrder());
+        return sortedLotto;
     }
 }
