@@ -3,6 +3,7 @@ package lotto;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import lotto.util.InputValidator; // util 패키지에 InputValidator가 있다고 가정
 import lotto.view.InputView;
 import org.assertj.core.api.AbstractBooleanArrayAssert;
@@ -29,6 +30,7 @@ class InputViewTest {
 
     @AfterEach
     void tearDown() {
+        Console.close();
         System.setOut(standardOut);
     }
 
@@ -52,7 +54,7 @@ class InputViewTest {
     @Test
     void inputBonusNumber_RetryOnDuplicate() {
         List<Integer> winningNumbers = List.of(1, 2, 3, 4, 5, 6);
-        String input = "5\n7";
+        String input = "5\n7\n";
         provideInput(input);
         int result = inputView.inputBonusNumber(winningNumbers);
         assertThat(result).isEqualTo(7);
