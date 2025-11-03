@@ -1,6 +1,7 @@
-package lotto;
+package lotto.view;
 
 import java.util.List;
+import lotto.model.domain.Rank;
 
 public class OutputView {
     public void printResult(List<Integer> countcorrect) {

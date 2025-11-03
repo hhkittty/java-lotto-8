@@ -1,8 +1,9 @@
-package lotto;
+package lotto.util;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.model.domain.Lotto;
 
 public class InputValidator {
     private static final String MsgPriceError0 ="[ERROR] 구입금액은 0보다 커야 합니다.";
