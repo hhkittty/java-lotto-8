@@ -1,19 +1,16 @@
 package lotto;
-//package lotto.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.util.InputValidator; // util 패키지에 InputValidator가 있다고 가정
 import lotto.view.InputView;
-import org.assertj.core.api.AbstractBooleanArrayAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.List;
 

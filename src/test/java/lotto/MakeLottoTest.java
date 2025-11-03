@@ -1,4 +1,3 @@
-//package lotto.service;
 package lotto;
 
 

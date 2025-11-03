@@ -1,9 +1,6 @@
 package lotto.model.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import lotto.model.domain.Rank;
 
 public class RankCalculator {
     public int countSame(List<Integer> lottoNumber,List<Integer> randomnum) {
