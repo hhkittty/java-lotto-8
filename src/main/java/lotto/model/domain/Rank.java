@@ -1,4 +1,4 @@
-package lotto.model;
+package lotto.model.domain;
 
 import java.util.Arrays;
 
@@ -28,7 +28,12 @@ public enum Rank {
 
     public static Rank findRank (int matchCount, boolean bonusMatched){
         return Arrays.stream(Rank.values())
-                .filter(r ->r.getMatchCount()==matchCount && (bonusMatched || !r.isBonus()))
+                .filter(r -> {
+                    if (r.getMatchCount() != matchCount) {
+                        return false;
+                    }
+                    return matchCount != 5 || (r.isBonus() == bonusMatched);
+                })
                 .findFirst()
                 .orElse(NONE);
     }
